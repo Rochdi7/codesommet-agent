@@ -778,5 +778,3 @@ Contributions are welcome! Open an issue or PR — let's build together.
 <sub>© 2026 CodeSommet — All rights reserved.</sub>
 
 </div>
-#   c o d e s o m m e t - a g e n t  
- 
