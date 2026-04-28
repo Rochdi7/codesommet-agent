@@ -239,6 +239,7 @@ class ProjectConfig(BaseModel):
     ai_framework: AIFrameworkType = AIFrameworkType.PYDANTIC_AI
     llm_provider: LLMProviderType = LLMProviderType.OPENAI
     enable_webhooks: bool = False
+    enable_instagram: bool = False
     enable_langsmith: bool = False
     enable_web_search: bool = False
     enable_cors: bool = True
@@ -468,6 +469,7 @@ class ProjectConfig(BaseModel):
             "enable_langsmith": self.enable_langsmith,
             "enable_web_search": self.enable_web_search,
             "enable_webhooks": self.enable_webhooks,
+            "enable_instagram": self.enable_instagram,
             # Legacy fixed values (WebSocket always uses JWT)
             "websocket_auth": "jwt",
             "websocket_auth_jwt": True,

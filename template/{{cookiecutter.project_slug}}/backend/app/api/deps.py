@@ -185,6 +185,18 @@ def get_file_upload_service(db: DBSession) -> FileUploadService:
 FileUploadSvc = Annotated[FileUploadService, Depends(get_file_upload_service)]
 {%- endif %}
 
+{%- if cookiecutter.enable_instagram and (cookiecutter.use_postgresql or cookiecutter.use_sqlite) %}
+from app.services.instagram import InstagramService
+
+
+def get_instagram_service(db: DBSession) -> InstagramService:
+    """Create InstagramService instance with database session."""
+    return InstagramService(db)
+
+
+InstagramSvc = Annotated[InstagramService, Depends(get_instagram_service)]
+{%- endif %}
+
 {%- if cookiecutter.use_jwt %}
 
 # === Authentication Dependencies ===

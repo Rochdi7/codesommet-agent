@@ -220,3 +220,8 @@ website/.astro/
 
 # Custom
 .playground/
+# Local generated/ephemeral
+my_project/
+data gls/
+RUN_LOCAL.md
+skills/

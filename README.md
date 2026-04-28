@@ -762,7 +762,7 @@ Contributions are welcome! Open an issue or PR — let's build together.
 
 <br>
 
-<h2>🏔️ Built by <a href="https://codesommet.com">CodeSommet</a></h2>
+<h2>🏔️ Built by <a href="https://github.com/Rochdi7/codesommet-agent">CodeSommet</a></h2>
 
 <p><i>Reaching the summit of code, one project at a time.</i></p>
 

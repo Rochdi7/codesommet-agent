@@ -1,5 +1,5 @@
 """API v1 router aggregation."""
-{%- if cookiecutter.use_jwt or cookiecutter.enable_oauth or cookiecutter.enable_webhooks %}
+{%- if cookiecutter.use_jwt or cookiecutter.enable_oauth or cookiecutter.enable_webhooks or cookiecutter.enable_instagram %}
 # ruff: noqa: I001 - Imports structured for Jinja2 template conditionals
 {%- endif %}
 
@@ -27,6 +27,9 @@ from app.api.routes.v1 import rag
 {%- endif %}
 {%- if cookiecutter.use_jwt and (cookiecutter.use_postgresql or cookiecutter.use_sqlite) %}
 from app.api.routes.v1 import files
+{%- endif %}
+{%- if cookiecutter.enable_instagram %}
+from app.api.routes.v1 import instagram
 {%- endif %}
 
 v1_router = APIRouter()
@@ -81,4 +84,10 @@ v1_router.include_router(rag.router, prefix="/rag", tags=["rag"])
 
 # File upload/download routes
 v1_router.include_router(files.router, tags=["files"])
+{%- endif %}
+
+{%- if cookiecutter.enable_instagram %}
+
+# Instagram integration routes
+v1_router.include_router(instagram.router, tags=["instagram"])
 {%- endif %}

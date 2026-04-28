@@ -44,6 +44,7 @@ enable_rag_image_description = "{{ cookiecutter.enable_rag_image_description }}"
 enable_google_drive_ingestion = "{{ cookiecutter.enable_google_drive_ingestion }}" == "True"
 enable_s3_ingestion = "{{ cookiecutter.enable_s3_ingestion }}" == "True"
 enable_web_search = "{{ cookiecutter.enable_web_search }}" == "True"
+enable_instagram = "{{ cookiecutter.enable_instagram }}" == "True"
 
 
 def remove_file(path: str) -> None:
@@ -106,6 +107,18 @@ if not enable_webhooks or not use_database:
     remove_file(os.path.join(backend_app, "repositories", "webhook.py"))
     remove_file(os.path.join(backend_app, "services", "webhook.py"))
     remove_file(os.path.join(backend_app, "schemas", "webhook.py"))
+
+# --- Instagram files ---
+if not enable_instagram:
+    remove_file(os.path.join(backend_app, "api", "routes", "v1", "instagram.py"))
+    remove_file(os.path.join(backend_app, "db", "models", "instagram_settings.py"))
+    remove_file(os.path.join(backend_app, "repositories", "instagram_settings.py"))
+    remove_file(os.path.join(backend_app, "services", "instagram.py"))
+    remove_file(os.path.join(backend_app, "schemas", "instagram.py"))
+    if use_frontend:
+        frontend_src = os.path.join(os.getcwd(), "frontend", "src")
+        remove_dir(os.path.join(frontend_src, "app", "api", "v1", "instagram"))
+        remove_file(os.path.join(frontend_src, "app", "[locale]", "(dashboard)", "settings", "instagram-settings.tsx"))
 
 # --- Session management files ---
 if not enable_session_management:

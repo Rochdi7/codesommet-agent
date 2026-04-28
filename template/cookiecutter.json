@@ -73,6 +73,7 @@
   "enable_langsmith": false,
   "enable_web_search": false,
   "enable_webhooks": false,
+  "enable_instagram": false,
   "websocket_auth": "jwt",
   "websocket_auth_jwt": true,
   "websocket_auth_api_key": false,

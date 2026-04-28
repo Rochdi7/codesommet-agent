@@ -360,6 +360,15 @@ def prompt_integrations(
             )
         )
 
+    # Instagram requires database
+    if database != DatabaseType.NONE:
+        choices.append(
+            questionary.Choice(
+                "Instagram — DM automation via Meta Graph API",
+                value="instagram",
+            )
+        )
+
     choices.extend(
         [
             questionary.Choice(
@@ -397,6 +406,7 @@ def prompt_integrations(
         "enable_admin_panel": "admin_panel" in features,
         "enable_file_storage": "file_storage" in features,
         "enable_webhooks": "webhooks" in features,
+        "enable_instagram": "instagram" in features,
         "enable_cors": "cors" in features,
         "enable_orjson": "orjson" in features,
     }
@@ -995,6 +1005,8 @@ def show_summary(config: ProjectConfig) -> None:
     enabled_features.append(ai_info)
     if config.enable_webhooks:
         enabled_features.append("Webhooks")
+    if config.enable_instagram:
+        enabled_features.append("Instagram")
     if config.enable_docker:
         enabled_features.append("Docker")
 

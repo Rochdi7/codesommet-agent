@@ -28,6 +28,10 @@ from app.repositories import sync_source as sync_source_repo
 
 from app.repositories import chat_file as chat_file_repo
 {%- endif %}
+{%- if cookiecutter.enable_instagram and (cookiecutter.use_postgresql or cookiecutter.use_sqlite) %}
+
+from app.repositories import instagram_settings as instagram_settings_repo
+{%- endif %}
 
 __all__ = [
 {%- if cookiecutter.use_jwt %}
@@ -49,5 +53,8 @@ __all__ = [
 {%- endif %}
 {%- if cookiecutter.use_jwt %}
     "chat_file_repo",
+{%- endif %}
+{%- if cookiecutter.enable_instagram and (cookiecutter.use_postgresql or cookiecutter.use_sqlite) %}
+    "instagram_settings_repo",
 {%- endif %}
 ]

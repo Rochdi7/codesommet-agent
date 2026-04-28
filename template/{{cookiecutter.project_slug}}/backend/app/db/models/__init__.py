@@ -28,6 +28,10 @@ from app.db.models.sync_log import SyncLog
 {%- set _ = models.append("SyncSource") %}
 from app.db.models.sync_source import SyncSource
 {%- endif %}
+{%- if cookiecutter.enable_instagram %}
+{%- set _ = models.append("InstagramSettings") %}
+from app.db.models.instagram_settings import InstagramSettings
+{%- endif %}
 {%- if models %}
 
 __all__ = {{ models }}

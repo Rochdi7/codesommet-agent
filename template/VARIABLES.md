@@ -184,6 +184,7 @@ These variables are set automatically by the generator.
 | `enable_cors` | bool | `true` | Enable CORS middleware | - |
 | `enable_orjson` | bool | `true` | Use orjson for faster JSON serialization | - |
 | `enable_webhooks` | bool | `false` | Enable webhook support | - |
+| `enable_instagram` | bool | `false` | Enable Instagram DM integration via Meta Graph API | Requires database |
 | `enable_conversation_persistence` | bool | `true` | Enable conversation persistence (always enabled) | Always true |
 | `include_example_crud` | bool | `false` | Include example CRUD endpoints (always disabled) | Always false |
 | `enable_i18n` | bool | `true` | Enable internationalization in frontend (always enabled) | Always true |
